@@ -25,7 +25,7 @@ import jakarta.persistence.Table;
 @Table(name = "user")
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
 public class User {
@@ -48,7 +48,7 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 	
-	@Column(name = "created_at", nullable = false)
+	@Column(name = "created_at", nullable = false, updatable = false)
 	private LocalDateTime createdAt = LocalDateTime.now();
 	
 	@ManyToMany(fetch = FetchType.EAGER)

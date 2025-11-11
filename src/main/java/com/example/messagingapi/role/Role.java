@@ -1,16 +1,12 @@
 package com.example.messagingapi.role;
 
-import java.util.List;
 import java.util.UUID;
-
-import com.example.messagingapi.user.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,9 +29,5 @@ public class Role {
 	
 	@Column(nullable = true)
 	private String description;
-	
-	@ManyToMany(mappedBy = "roles")
-	private List<User> users;
-	
 
 }
