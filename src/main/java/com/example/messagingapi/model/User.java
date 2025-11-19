@@ -1,4 +1,4 @@
-package com.example.messagingapi.user;
+package com.example.messagingapi.model;
 
 import java.time.LocalDateTime;
 import lombok.*;
@@ -23,7 +23,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "user")
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @Getter
 @Setter
 public class User {
@@ -46,12 +46,12 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 
-	@Column(name = "created_at", nullable = false, updatable = false)
+	@Column(name = "created_at", nullable = true, updatable = false)
 	private LocalDateTime createdAt = LocalDateTime.now();
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	@Enumerated(EnumType.STRING)
-	private Set<Role> role;
+	private Set<Role> roles;
 	
 
 	@PrePersist

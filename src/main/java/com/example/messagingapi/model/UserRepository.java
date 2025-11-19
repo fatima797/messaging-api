@@ -1,4 +1,4 @@
-package com.example.messagingapi.user;
+package com.example.messagingapi.model;
 
 import java.util.Optional;
 import java.util.UUID;
