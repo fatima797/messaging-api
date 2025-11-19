@@ -1,33 +1,9 @@
 package com.example.messagingapi.role;
 
-import java.util.UUID;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Entity
-@Table(name = "role")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Role {
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
+public enum Role {
+	ROLE_ADMIN,
+	ROLE_PRODUCER,
+	ROLE_SUBSCRIBER
 	
-	@Column(nullable = false, unique = true)
-	private RoleName roleName;
-	
-	@Column(nullable = true)
-	private String description;
 
 }
