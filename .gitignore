@@ -23,3 +23,6 @@ Thumbs.db
 # Maven wrapper jar
 .mvn/
 !/.mvn/wrapper/maven-wrapper.jar
+
+# Environment variables (database credentials, secrets)
+.env
