@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.messagingapi.dto.CreateUserDTO;
+import com.example.messagingapi.dto.UserResponseDTO;
 import com.example.messagingapi.model.User;
 import com.example.messagingapi.model.UserRepository;
 import com.example.messagingapi.service.UserService;
@@ -51,9 +52,24 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<UserResponseDTO> getAllUsers() {
+		
+		return userRepository.findAll()
+				.stream()
+				.map(this::convertToUserResponseDTO)
+				.toList();
+	}
+	
+	private UserResponseDTO convertToUserResponseDTO(User user) {
+		UserResponseDTO dto = new UserResponseDTO();
+		dto.setId(user.getId());
+		dto.setFirstName(user.getFirstName());
+		dto.setLastName(user.getLastName());
+		dto.setEmail(user.getEmail());
+		dto.setUsername(user.getUsername());
+		dto.setRoles(user.getRoles());
+		
+		return dto;
 	}
 
 }
